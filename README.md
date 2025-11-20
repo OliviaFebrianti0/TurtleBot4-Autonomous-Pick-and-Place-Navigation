@@ -11,14 +11,14 @@ Robot bertugas mengantarkan barang dari Ruang 203 ke Lobby BRAIL (Lantai 2, Gedu
 Robot melakukan lokalisasi, pemetaan, perencanaan jalur, eksekusi navigasi otonom. 
 
 # Cara Menjalankan Proyek
-1. Membuat Folder Workspace
+### 1. Membuat Folder Workspace
 Pada langkah ini, membuat workspace ROS2 dengan struktur standar. Semua package akan ditempatkan di dalam folder src, sehingga ROS2 dapat mengenali dan membangunnya menggunakan colcon build.
 ```
 mkdir kelompok4a_uts/src
 cd kelompok4a_uts/src
 ```
 
-3. Membuat Package dan Dependencies
+### 2. Membuat Package dan Dependencies
 ```
 source /opt/ros/jazzy/setup.bash
 ros2 pkg create --build-type ament_cmake --node-name navkel4a navkel4a --dependencies rclcpp nav2_msgs rclcpp_action tf2
@@ -30,7 +30,7 @@ ros2 pkg create --build-type ament_cmake --node-name navkel4a navkel4a --depende
 - Dependencies seperti ```rclcpp, nav2_msgs, rclcpp_action, dan tf2``` diperlukan untuk menulis node C++, mengirim goal ke Nav2, dan mengakses transformasi robot.
 File node utama akan bernama navkel4a.cpp dan otomatis dibuat saat package dibuat.
 
-3. Build Package
+### 3. Build Package
 ```
 colcon build
 ```
@@ -63,19 +63,19 @@ ros2 launch turtlebot4_viz view_navigation.launch.py
 RViz digunakan untuk memvisualisasikan peta, posisi robot, data LIDAR, serta frame transformasi yang digunakan oleh Nav2.
 
 # Menjalankan Nav2 (Navigasi)
-1. Menjalankan Navigation Node
+### 1. Menjalankan Navigation Node
 ```
 ros2 launch nav_kel4a run_navigation.launch.py
 ```
 Launch file ini berisi konfigurasi navigasi yang dibuat dalam package nav_kel4a, mencakup parameter navigasi seperti planner, controller, dan behavior tree.
 
-3. Menjalankan Localization
+### 2. Menjalankan Localization
 ```
 ros2 launch turtlebot4_navigation localization.launch.py map:=kelompok4A_uts/src/nav_kel4a/maps/kel4a.yaml
 ```
 Tahap ini menjalankan AMCL (Adaptive Monte Carlo Localization) untuk menentukan posisi robot pada peta yang telah dibuat saat mapping. ROS2 akan memuat file map .yaml tersebut dan mengaktifkan Nav2.
 
-5. Menampilkan RViz
+### 3. Menampilkan RViz
 ```
 ros2 launch turtlebot4_viz view_navigation.launch.py
 ```
