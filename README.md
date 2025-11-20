@@ -13,8 +13,8 @@ Robot melakukan lokalisasi, pemetaan, perencanaan jalur, eksekusi navigasi otono
 # Cara Menjalankan Proyek
 1. Membuat Folder Workspace
 Pada langkah ini, membuat workspace ROS2 dengan struktur standar. Semua package akan ditempatkan di dalam folder src, sehingga ROS2 dapat mengenali dan membangunnya menggunakan colcon build.
-```mkdir kelompok4a_uts/src```
-```cd kelompok4a_uts/src```
+```mkdir kelompok4a_uts/src
+   cd kelompok4a_uts/src```
 
 3. Membuat Package dan Dependencies
 ```source /opt/ros/jazzy/setup.bash
